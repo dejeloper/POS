@@ -17,7 +17,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -65,7 +64,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <>
+    <div className="flex justify-center items-center h-[calc(100vh-168px)]">
       <Card className="mx-auto max-w-sm">
         <CardHeader>
           <CardTitle className="text-xl">Registro</CardTitle>
@@ -151,9 +150,9 @@ export default function RegisterPage() {
                 </Button>
               </div>
             </form>
-          </Form>{" "}
+          </Form>
         </CardContent>
       </Card>
-    </>
+    </div>
   );
 }
