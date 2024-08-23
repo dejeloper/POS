@@ -32,6 +32,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
+    --success: 120 50% 45%; /* Verde más intenso */
+    --success-foreground: 120 100% 90%; /* Verde claro */
+
+    --info: 200 80% 45%; /* Azul más saturado */
+    --info-foreground: 200 100% 90%; /* Azul claro */
+
+    --warning: 40 80% 60%; /* Amarillo más saturado */
+    --warning-foreground: 40 100% 95%; /* Amarillo claro */
+
     --radius: 0.5rem;
   }
 
@@ -63,6 +72,15 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --success: 120 45% 30%; /* Verde más saturado */
+    --success-foreground: 120 100% 85%; /* Verde claro */
+
+    --info: 200 70% 35%; /* Azul más saturado */
+    --info-foreground: 200 100% 85%; /* Azul claro */
+
+    --warning: 40 70% 50%; /* Amarillo más saturado */
+    --warning-foreground: 40 100% 90%; /* Amarillo claro */
   }
 }
 
