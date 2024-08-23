@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./ui/globals.css";
 import { ThemeProvider } from "./ui/theme-provider";
 import { Navbar } from "@/components/header/nav";
-import { inter, poppins } from "./ui/fonts";
+import { inter, poppins, roboto } from "./ui/fonts";
 
 const title = "POS General"; //process.env.NAME_APP;
 const description = "Focus on your business, POS manages your sales"; //process.env.DESCRIPTION_APP;
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" translate="no" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${roboto.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
