@@ -3,6 +3,7 @@ import "./ui/globals.css";
 import { ThemeProvider } from "./ui/theme-provider";
 import { Navbar } from "@/components/header/nav";
 import { inter, poppins, roboto } from "./ui/fonts";
+import { Toaster } from "@/components/ui/toaster";
 
 const title = "POS General"; //process.env.NAME_APP;
 const description = "Focus on your business, POS manages your sales"; //process.env.DESCRIPTION_APP;
@@ -32,6 +33,7 @@ export default function RootLayout({
               {children}
             </div>
           </div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
