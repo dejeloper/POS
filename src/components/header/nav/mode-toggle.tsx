@@ -7,7 +7,7 @@ export function ModeToggle() {
   const { setTheme } = useTheme();
 
   return (
-    <div className=" ">
+    <>
       <Button
         className="dark:flex hidden items-center justify-center"
         variant="outline"
@@ -25,6 +25,6 @@ export function ModeToggle() {
       >
         <Moon className="absolute h-[1.2rem] w-[1.2rem] text-foreground" />
       </Button>
-    </div>
+    </>
   );
 }
