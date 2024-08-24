@@ -1,26 +1,42 @@
 "use client";
 
-import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
-import {
-  Focus,
   Home,
   Package,
+  Search,
   Settings,
   ShoppingBag,
   UserCog,
 } from "lucide-react";
-
-import { SidebarLogOut, SidebarModeToggle } from "@/components/header/sidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
+  ISidebarMenu,
+  SidebarAside,
+  SidebarSheet,
+} from "@/components/header/sidebar";
+import { ModeToggle } from "../nav";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { Input } from "@/components/ui/input";
 
 export default function Sidebar() {
   const { data: session, status } = useSession();
@@ -29,7 +45,7 @@ export default function Sidebar() {
     if (status === "loading") return;
   }, [session, status]);
 
-  const menus = [
+  const menus: ISidebarMenu[] = [
     {
       name: "Inicio",
       href: "/",
@@ -50,62 +66,78 @@ export default function Sidebar() {
       href: "/pages/users",
       icon: UserCog,
     },
+    {
+      name: "Configuraciones",
+      href: "/pages/settings",
+      icon: Settings,
+    },
   ];
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
-      <nav className="flex flex-col items-center gap-4 px-2 py-4">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base cursor-none">
-                <Focus className="h-4 w-4 transition-all group-hover:scale-110" />
-                <span className="sr-only">Pos General</span>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent side="right">Pos General</TooltipContent>
-          </Tooltip>
+    <>
+      <SidebarAside session={session!} menus={menus} />
+      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+          <div className="flex justify-between items-center w-full gap-x-2">
+            <SidebarSheet session={session!} menus={menus} />
 
-          {session &&
-            menus &&
-            menus.map((menu, i) => (
-              <Tooltip key={i}>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={menu.href}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8 hover:bg-accent"
-                  >
-                    <menu.icon className="h-5 w-5" />
-                    <span className="sr-only">{menu.name}</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right">{menu.name}</TooltipContent>
-              </Tooltip>
-            ))}
-        </TooltipProvider>
-      </nav>
-      <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
-        <TooltipProvider>
-          {session && (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="/pages/settings"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 hover:bg-accent"
+            <Breadcrumb className="hidden md:flex">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="#">Dashboard</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="#">Products</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Edit Product</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+            <div className="relative ml-auto flex-1 md:grow-0">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search..."
+                className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
+              />
+            </div>
+
+            <ModeToggle className="md:flex hidden" />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="overflow-hidden rounded-full"
                 >
-                  <Settings className="h-5 w-5" />
-                  <span className="sr-only">Configuraciones</span>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="right">Configuraciones</TooltipContent>
-            </Tooltip>
-          )}
-        </TooltipProvider>
-
-        <SidebarModeToggle />
-
-        {session && <SidebarLogOut />}
-      </nav>
-    </aside>
+                  <Image
+                    src="/Admin.jpg"
+                    width={36}
+                    height={36}
+                    alt="Avatar"
+                    className="overflow-hidden rounded-full"
+                  />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Logout</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </header>
+      </div>
+    </>
   );
 }
