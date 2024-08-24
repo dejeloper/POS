@@ -11,10 +11,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { ISidebar } from "@/components/header/sidebar";
+import { ISidebar, ISidebarMenu } from "@/components/header/sidebar";
 import { Focus, PanelLeft } from "lucide-react";
 
-export function SidebarSheet({ session, menus }: ISidebar) {
+export function SidebarSheet({ session, sidebarMenu }: ISidebar) {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -35,8 +35,8 @@ export function SidebarSheet({ session, menus }: ISidebar) {
             </div>
 
             {session &&
-              menus &&
-              menus.map((menu, i) => {
+              sidebarMenu &&
+              sidebarMenu.map((menu: ISidebarMenu, i) => {
                 return (
                   <div key={i} className="border-0">
                     <SheetClose asChild>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Session } from "next-auth";
 
 import {
   Tooltip,
@@ -12,10 +11,11 @@ import {
   SidebarLogOut,
   SidebarModeToggle,
   ISidebar,
+  ISidebarMenu,
 } from "@/components/header/sidebar";
-import { Focus, Settings } from "lucide-react";
+import { Focus } from "lucide-react";
 
-export function SidebarAside({ session, menus }: ISidebar) {
+export function SidebarAside({ session, sidebarMenu }: ISidebar) {
   return (
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
       <nav className="flex flex-col items-center gap-4 px-2 py-4">
@@ -31,8 +31,8 @@ export function SidebarAside({ session, menus }: ISidebar) {
           </Tooltip>
 
           {session &&
-            menus &&
-            menus.map((menu, i) => (
+            sidebarMenu &&
+            sidebarMenu.map((menu: ISidebarMenu, i) => (
               <Tooltip key={i}>
                 <TooltipTrigger asChild>
                   <Link

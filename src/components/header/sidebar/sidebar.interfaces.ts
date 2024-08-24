@@ -1,6 +1,7 @@
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Session } from "next-auth";
 import { LucideProps } from "lucide-react";
+import { IBreadcrumbBar } from "../breadcrumb";
 
 export interface ISidebarMenu {
   name: string;
@@ -11,6 +12,7 @@ export interface ISidebarMenu {
 }
 
 export interface ISidebar {
-  session: Session;
-  menus: ISidebarMenu[];
+  session?: Session;
+  sidebarMenu?: ISidebarMenu[];
+  menuBreadcrumb?: IBreadcrumbBar[];
 }
