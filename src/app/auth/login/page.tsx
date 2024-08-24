@@ -64,7 +64,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex justify-center items-center h-[calc(100vh-168px)]">
+    <div className="flex justify-center items-center h-screen">
       <Card className="mx-auto max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl text-center">Hola 👋</CardTitle>
@@ -110,7 +110,7 @@ export default function LoginPage() {
                   />
                 </div>
                 <Button type="submit" className="w-full">
-                  Registrarse
+                  Iniciar sesión
                 </Button>
               </div>
             </form>

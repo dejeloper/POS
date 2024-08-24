@@ -64,10 +64,12 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex justify-center items-center h-[calc(100vh-168px)]">
+    <div className="flex justify-center items-center h-screen">
       <Card className="mx-auto max-w-sm">
         <CardHeader>
-          <CardTitle className="text-xl">Registro</CardTitle>
+          <CardTitle className="text-2xl text-center">
+            ✏️ Registro Usuario
+          </CardTitle>
           <CardDescription>
             Ingrese su información para crear una cuenta
           </CardDescription>
