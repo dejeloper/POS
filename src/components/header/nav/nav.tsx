@@ -17,6 +17,7 @@ import { usePathname } from "next/navigation";
 import { LogOutButton, ModeToggle } from "@/components/header/nav";
 
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 const menuItems = [
   { name: "Inicio", url: "/home" },
@@ -27,8 +28,11 @@ const menuItems = [
 export function Navbar() {
   const pathname = usePathname();
   const name = "POS General";
-
   const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (status === "loading") return;
+  }, [session, status]);
 
   return (
     <nav className="bg-slate-100 dark:bg-gray-900 fixed top-0 w-full z-10 mb-24">
@@ -47,7 +51,7 @@ export function Navbar() {
           )}
         >
           <ul className="font-medium flex flex-row items-center gap-[4vw] w-auto">
-            {!pathname.includes("/auth/login") &&
+            {status === "authenticated" &&
               menuItems &&
               menuItems.map((item, index) => {
                 const menuIsActive = pathname.includes(item.url);
@@ -71,9 +75,9 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <div className="flex gap-2 mx-2">
             <ModeToggle />
-            <LogOutButton />
+            {status === "authenticated" && <LogOutButton />}
           </div>
-          {!pathname.includes("/auth/login") && (
+          {status === "authenticated" && (
             <Sheet>
               <SheetTrigger asChild className="md:hidden">
                 <Button variant="outline" size="icon" className="-ml-2">
