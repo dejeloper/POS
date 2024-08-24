@@ -1,8 +1,10 @@
 "use client";
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { IBreadcrumbBar } from "@/components/header/breadcrumb";
+import { PagesWrapper } from "@/components/header/wrapper";
 
 export default function HomePage() {
   const { data: session, status } = useSession();
@@ -18,9 +20,16 @@ export default function HomePage() {
   const description =
     "GENN es un sistema de punto de venta diseñado para optimizar la gestión de tu negocio. Con GENN, puedes realizar ventas, gestionar inventarios, y llevar un control detallado de las transacciones y reportes. GENN te ayuda a simplificar la operación diaria y a maximizar la eficiencia de tu negocio.";
 
+  const menuBreadcrumb: IBreadcrumbBar[] = [
+    {
+      name: "Inicio",
+      href: "/",
+    },
+  ];
+
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="flex flex-col justify-center m-4 ">
+    <PagesWrapper center={false} menuBreadcrumb={menuBreadcrumb}>
+      <div className="flex flex-col justify-center mx-4 ">
         <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-foreground md:text-5xl lg:text-6xl  ">
           {title}
         </h1>
@@ -28,6 +37,6 @@ export default function HomePage() {
           {description}
         </p>
       </div>
-    </div>
+    </PagesWrapper>
   );
 }
