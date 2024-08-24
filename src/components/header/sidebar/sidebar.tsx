@@ -109,7 +109,7 @@ export default function Sidebar() {
               />
             </div>
 
-            <ModeToggle className="md:flex hidden" />
+            <ModeToggle className="flex md:hidden" />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
