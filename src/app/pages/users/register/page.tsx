@@ -24,6 +24,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import { IBreadcrumbBar } from "@/components/header/breadcrumb";
+import { PagesWrapper } from "@/components/header/wrapper";
 
 export default function RegisterPage() {
   const form = useForm<z.infer<typeof userRegisterSchema>>({
@@ -62,9 +64,23 @@ export default function RegisterPage() {
       router.push("/auth/login");
     }
   }
+  const menuBreadcrumb: IBreadcrumbBar[] = [
+    {
+      name: "Inicio",
+      href: "/",
+    },
+    {
+      name: "Lista de Usuarios",
+      href: "/pages/users",
+    },
+    {
+      name: "Registro de Usuarios",
+      href: "/pages/users/register",
+    },
+  ];
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <PagesWrapper center={true} menuBreadcrumb={menuBreadcrumb}>
       <Card className="mx-auto max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl text-center">
@@ -155,6 +171,6 @@ export default function RegisterPage() {
           </Form>
         </CardContent>
       </Card>
-    </div>
+    </PagesWrapper>
   );
 }
