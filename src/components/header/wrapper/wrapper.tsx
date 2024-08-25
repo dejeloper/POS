@@ -6,6 +6,7 @@ import { IPagesWrapper } from "@/components/header/wrapper";
 import { ISidebarMenu, Sidebar } from "@/components/header/sidebar";
 import { cn } from "@/lib/utils";
 import {
+  Bone,
   Gem,
   Home,
   Package,
@@ -45,12 +46,7 @@ export function PagesWrapper({
     {
       name: "Productos",
       href: "/pages/products",
-      icon: Gem,
-    },
-    {
-      name: "Servicios",
-      href: "/pages/services",
-      icon: Wrench,
+      icon: Bone, //Gem,
     },
     {
       name: "Inventario",
@@ -85,7 +81,7 @@ export function PagesWrapper({
           )}
         >
           <div
-            className={cn("flex flex-col justify-center", {
+            className={cn("flex flex-col justify-center pb-8", {
               "items-center h-full": center,
             })}
           >

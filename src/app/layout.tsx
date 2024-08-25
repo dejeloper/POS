@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" translate="no" suppressHydrationWarning>
-      <body className={`${roboto.className} antialiased`}>
+      <body className={`${roboto.className} antialiased overflow-hidden`}>
         <ClientSessionProvider>
           <ThemeProvider
             attribute="class"
