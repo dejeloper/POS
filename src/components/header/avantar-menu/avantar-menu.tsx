@@ -7,10 +7,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { AvatarMenuImage } from "./avatar-menu-image";
 import { Session } from "next-auth";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
+import { cn } from "@/lib/utils";
 
 const menuUser = [
   {
@@ -42,7 +44,9 @@ export function AvatarMenu({ session }: { session: Session }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel asChild>
-          <span className="flex justify-center">{user?.toUpperCase()}</span>
+          <span className="flex justify-center cursor-default">
+            {user?.toUpperCase()}
+          </span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {menuUser &&
@@ -57,7 +61,17 @@ export function AvatarMenu({ session }: { session: Session }) {
             </DropdownMenuItem>
           ))}
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Cerrar sesión</DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Button
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              "w-full cursor-pointer transition-colors text-foreground bg-transparent hover:bg-accent hover:text-foreground/85"
+            )}
+            onClick={() => signOut()}
+          >
+            <span className="text-left">Cerrar sesión</span>
+          </Button>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
