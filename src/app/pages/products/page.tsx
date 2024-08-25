@@ -10,12 +10,8 @@ export default function ProductsPage() {
       href: "/",
     },
     {
-      name: "Inventario",
-      href: "/pages/inventory",
-    },
-    {
-      name: "Listado de Productos",
-      href: "/pages/inventory/products",
+      name: "Productos",
+      href: "/pages/products",
     },
   ];
 
@@ -27,7 +23,7 @@ export default function ProductsPage() {
         </h1>
         <div className="flex justify-center items-center gap-4">
           <Link
-            href="/pages/inventory/products/new"
+            href="/pages/products/new"
             className={buttonVariants({ variant: "primary" })}
           >
             Producto Nuevo

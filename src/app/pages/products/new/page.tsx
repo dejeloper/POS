@@ -8,16 +8,12 @@ export default function NewProductPage() {
       href: "/",
     },
     {
-      name: "Inventario",
-      href: "/pages/inventory",
-    },
-    {
-      name: "Listado de Productos",
-      href: "/pages/inventory/products",
+      name: "Productos",
+      href: "/pages/products",
     },
     {
       name: "Agregar Producto",
-      href: "/pages/inventory/products/new",
+      href: "/pages/products/new",
     },
   ];
 

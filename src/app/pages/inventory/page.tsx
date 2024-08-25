@@ -21,20 +21,6 @@ export default function InventoryPage() {
         <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-foreground md:text-5xl lg:text-6xl  ">
           Inventario
         </h1>
-        <div className="flex justify-center items-center gap-4">
-          <Link
-            href="/pages/inventory/products"
-            className={buttonVariants({ variant: "primary" })}
-          >
-            Productos
-          </Link>
-          <Link
-            href="/pages/inventory/services"
-            className={buttonVariants({ variant: "secondary" })}
-          >
-            Servicios
-          </Link>
-        </div>
       </div>
     </PagesWrapper>
   );

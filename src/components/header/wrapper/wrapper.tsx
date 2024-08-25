@@ -5,7 +5,15 @@ import { useSession } from "next-auth/react";
 import { IPagesWrapper } from "@/components/header/wrapper";
 import { ISidebarMenu, Sidebar } from "@/components/header/sidebar";
 import { cn } from "@/lib/utils";
-import { Home, Package, Settings, ShoppingBag, UserCog } from "lucide-react";
+import {
+  Gem,
+  Home,
+  Package,
+  Settings,
+  ShoppingBag,
+  UserCog,
+  Wrench,
+} from "lucide-react";
 import Loading from "@/app/loading";
 
 export function PagesWrapper({
@@ -33,6 +41,16 @@ export function PagesWrapper({
       name: "Ventas",
       href: "/pages/sales",
       icon: ShoppingBag,
+    },
+    {
+      name: "Productos",
+      href: "/pages/products",
+      icon: Gem,
+    },
+    {
+      name: "Servicios",
+      href: "/pages/services",
+      icon: Wrench,
     },
     {
       name: "Inventario",
