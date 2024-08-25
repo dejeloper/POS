@@ -27,6 +27,12 @@ export default function ProductsPage() {
             className={buttonVariants({ variant: "primary" })}
           >
             Producto o Servicio Nuevo
+          </Link>{" "}
+          <Link
+            href="/pages/products/details"
+            className={buttonVariants({ variant: "primary" })}
+          >
+            Ver un Producto o Servicio
           </Link>
         </div>
       </div>
