@@ -12,13 +12,11 @@ const authOptions: NextAuthOptions = {
         username: {
           label: "Username",
           type: "text",
-          placeholder: "Max",
-          value: "admin",
+          placeholder: "Orion",
         },
         password: {
           label: "Password",
           type: "password",
-          value: "admin123",
           placeholder: "*******",
         },
       },

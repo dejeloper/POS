@@ -31,10 +31,10 @@ export default function RegisterPage() {
   const form = useForm<z.infer<typeof userRegisterSchema>>({
     resolver: zodResolver(userRegisterSchema),
     defaultValues: {
-      email: "jhonatanguerrero@outlook.com",
-      username: "admin",
-      password: "admin123",
-      confirmPassword: "admin123",
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
     },
   });
 
@@ -120,7 +120,7 @@ export default function RegisterPage() {
                       <FormItem>
                         <FormLabel>Usuario</FormLabel>
                         <FormControl>
-                          <Input placeholder="Max" {...field} />
+                          <Input placeholder="Orion" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
