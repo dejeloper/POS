@@ -10,7 +10,7 @@ export default function ProductsPage() {
       href: "/",
     },
     {
-      name: "Productos",
+      name: "Productos y Servicios",
       href: "/pages/products",
     },
   ];
@@ -19,14 +19,14 @@ export default function ProductsPage() {
     <PagesWrapper center={true} menuBreadcrumb={menuBreadcrumb}>
       <div className="flex flex-col justify-center m-4 ">
         <h1 className="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-foreground md:text-5xl lg:text-6xl  ">
-          Listado de Productos
+          Listado de Productos y Servicios
         </h1>
         <div className="flex justify-center items-center gap-4">
           <Link
             href="/pages/products/new"
             className={buttonVariants({ variant: "primary" })}
           >
-            Producto Nuevo
+            Producto o Servicio Nuevo
           </Link>
         </div>
       </div>
