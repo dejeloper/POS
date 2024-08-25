@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -25,18 +26,22 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import Loading from "@/app/loading";
 
 export default function LoginPage() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof userLoginSchema>>({
     resolver: zodResolver(userLoginSchema),
     defaultValues: {
-      username: "admin",
-      password: "admin123",
+      username: "",
+      password: "",
     },
   });
   const router = useRouter();
 
   async function onSubmit(dataLoginUser: z.infer<typeof userLoginSchema>) {
+    setIsLoading(true);
     const res = await signIn("credentials", {
       username: dataLoginUser.username,
       password: dataLoginUser.password,
@@ -44,6 +49,7 @@ export default function LoginPage() {
     });
 
     if (res?.error) {
+      setIsLoading(false);
       toast({
         variant: "destructive",
         description: res.error,
@@ -59,8 +65,13 @@ export default function LoginPage() {
 
       setTimeout(() => {
         router.push("/home");
+        setIsLoading(false);
       }, 1600);
     }
+  }
+
+  if (isLoading) {
+    return <Loading text="Iniciando sesión" />;
   }
 
   return (
@@ -84,7 +95,7 @@ export default function LoginPage() {
                       <FormItem>
                         <FormLabel>Usuario</FormLabel>
                         <FormControl>
-                          <Input placeholder="Max" {...field} />
+                          <Input placeholder="Orion" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
