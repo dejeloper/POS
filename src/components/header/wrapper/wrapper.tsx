@@ -59,8 +59,13 @@ export function PagesWrapper({
         menuBreadcrumb={menuBreadcrumb}
       />
 
-      <div className="flex flex-col h-screen overflow-auto">
-        <div className="h-[calc(100dvh-104px)] p-4 sm:ml-20 my-4 mx-6 rounded-md lg:w-3/4 lg:mx-auto border border-red-500 sm:border-blue-500 md:border-green-500 lg:border-yellow-500 xl:border-slate-500">
+      <div className="flex flex-col h-screen overflow-auto cursor-default">
+        <div
+          className={cn(
+            "h-[calc(100dvh-104px)] p-4 sm:ml-20 my-4 mx-6 rounded-md lg:w-3/4 lg:mx-auto"
+            // , "border border-red-500 sm:border-blue-500 md:border-green-500 lg:border-yellow-500 xl:border-slate-500"
+          )}
+        >
           <div
             className={cn("flex flex-col justify-center", {
               "items-center h-full": center,
