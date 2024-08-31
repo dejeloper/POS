@@ -49,9 +49,8 @@ export const ProductsSection = () => {
                     Consulta Veterinaria
                   </SelectItem>
                   <SelectItem value="vaccine">Vacunación</SelectItem>
-                  <SelectItem value="surgery">Vacunación</SelectItem>
+                  <SelectItem value="surgery">Cirugía</SelectItem>
                   <SelectItem value="Aadoption">Adopción</SelectItem>
-                  <SelectItem value="daycare">Guardería</SelectItem>
                 </SelectContent>
               </Select>
             </div>
