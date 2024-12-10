@@ -20,8 +20,9 @@ const authOptions: NextAuthOptions = {
           placeholder: "*******",
         },
       },
+
       async authorize(credentials, req) {
-        if (!credentials?.username || !credentials?.username) return null;
+        if (!credentials?.username || !credentials?.password) return null;
 
         const userFound = await prisma.user.findUnique({
           where: { username: credentials?.username },
@@ -49,6 +50,7 @@ const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt", // Usa JWT en lugar de sesiones basadas en cookies
   },
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
