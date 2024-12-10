@@ -247,7 +247,7 @@ export default function NewProductPage() {
           <FormProvider {...form}>
             <div className="items-center space-y-4 sm:flex my-12 sm:space-y-0 xl:mx-24 md:mx-12 sm:mx-8 mx-4">
               <Card className="mx-auto w-full">
-                <CardContent>
+                <CardContent className="bg-background rounded-lg">
                   <div className="flex justify-between space-y-1.5 py-6">
                     <section className="flex flex-col ">
                       <h3 className="text-2xl font-semibold leading-none tracking-tight">

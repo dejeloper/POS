@@ -16,9 +16,9 @@ export default function HomePage() {
   }, [session, status]);
 
   const user = status === "authenticated" ? session?.user?.name : "";
-  const title = "Hola 👋" + user?.toUpperCase() + " a POS";
+  const title = "Hola 👋" + user?.toUpperCase() + " a su POS";
   const description =
-    "GENN es un sistema de punto de venta diseñado para optimizar la gestión de tu negocio. Con GENN, puedes realizar ventas, gestionar inventarios, y llevar un control detallado de las transacciones y reportes. GENN te ayuda a simplificar la operación diaria y a maximizar la eficiencia de tu negocio.";
+    "'Zielco POS' es un sistema de punto de venta diseñado para optimizar la gestión de tu negocio. Con 'Zielco POS', puedes realizar ventas, gestionar inventarios, y llevar un control detallado de las transacciones y reportes. 'Zielco POS' te ayuda a simplificar la operación diaria y a maximizar la eficiencia de tu negocio.";
 
   const menuBreadcrumb: IBreadcrumbBar[] = [
     {
