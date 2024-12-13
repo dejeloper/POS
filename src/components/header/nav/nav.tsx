@@ -21,8 +21,8 @@ import { useEffect } from "react";
 
 const menuItems = [
   { name: "Inicio", url: "/home" },
-  { name: "Ventas", url: "/pages/sales" },
-  { name: "Inventario", url: "/pages/inventory" },
+  { name: "Ventas", url: "/sales" },
+  { name: "Inventario", url: "/inventory" },
 ];
 
 export function Navbar() {

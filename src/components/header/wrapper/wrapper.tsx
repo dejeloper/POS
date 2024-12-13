@@ -1,6 +1,8 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import { IPagesWrapper } from "@/components/header/wrapper";
 import { ISidebarMenu, Sidebar } from "@/components/header/sidebar";
@@ -24,12 +26,15 @@ export function PagesWrapper({
 }: IPagesWrapper) {
   const { data: session, status } = useSession();
 
+  let currentPath = usePathname()?.replace(/$\//, "");
+  currentPath = currentPath.replace(/^\//, "");
+
   if (status === "loading") {
     return <Loading text="Cargando" />;
   }
 
   if (status === "unauthenticated") {
-    return <Loading text="Acceso denegado. Cargando" />;
+    return redirect("/auth/login?nextpage=" + currentPath);
   }
 
   const sidebarMenu: ISidebarMenu[] = [
@@ -40,27 +45,27 @@ export function PagesWrapper({
     },
     {
       name: "Ventas",
-      href: "/pages/sales",
+      href: "/sales",
       icon: ShoppingBag,
     },
     {
       name: "Productos",
-      href: "/pages/products",
+      href: "/products",
       icon: Bone, //Gem,
     },
     {
       name: "Inventario",
-      href: "/pages/inventory",
+      href: "/inventory",
       icon: Package,
     },
     {
       name: "Usuarios",
-      href: "/pages/users",
+      href: "/users",
       icon: UserCog,
     },
     {
       name: "Configuraciones",
-      href: "/pages/settings",
+      href: "/settings",
       icon: Settings,
     },
   ];

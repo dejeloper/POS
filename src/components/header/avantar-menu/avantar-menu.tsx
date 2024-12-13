@@ -67,7 +67,11 @@ export function AvatarMenu({ session }: { session: Session }) {
               buttonVariants({ variant: "ghost" }),
               "w-full cursor-pointer transition-colors text-foreground bg-transparent hover:bg-accent hover:text-foreground/85"
             )}
-            onClick={() => signOut()}
+            onClick={() =>
+              signOut({
+                callbackUrl: "/auth/login",
+              })
+            }
           >
             <span className="text-left">Cerrar sesión</span>
           </Button>

@@ -11,7 +11,7 @@ export default function ProductsPage() {
     },
     {
       name: "Productos y Servicios",
-      href: "/pages/products",
+      href: "/products",
     },
   ];
 
@@ -23,13 +23,13 @@ export default function ProductsPage() {
         </h1>
         <div className="flex justify-center items-center gap-4">
           <Link
-            href="/pages/products/new"
+            href="/products/new"
             className={buttonVariants({ variant: "primary" })}
           >
             Producto o Servicio Nuevo
           </Link>{" "}
           <Link
-            href="/pages/products/details"
+            href="/products/details"
             className={buttonVariants({ variant: "primary" })}
           >
             Ver un Producto o Servicio

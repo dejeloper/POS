@@ -11,7 +11,11 @@ export function LogOutButton() {
         className="flex items-center justify-center"
         variant="outline"
         size="icon"
-        onClick={() => signOut()}
+        onClick={() =>
+          signOut({
+            callbackUrl: "/auth/login",
+          })
+        }
       >
         <LogOutIcon className="h-[1.2rem] w-[1.2rem] text-foreground" />
       </Button>

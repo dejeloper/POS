@@ -18,7 +18,11 @@ export function SidebarLogOut() {
             className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 hover:bg-accent"
             variant="ghost"
             size="icon"
-            onClick={() => signOut()}
+            onClick={() =>
+              signOut({
+                callbackUrl: "/auth/login",
+              })
+            }
           >
             <LogOut className="h-5 w-5" />
             <span className="sr-only">Salir</span>

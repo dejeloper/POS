@@ -9,7 +9,7 @@ export default function SalesPage() {
     },
     {
       name: "Listado de Ventas",
-      href: "/pages/sales",
+      href: "/sales",
     },
   ];
 

@@ -20,11 +20,11 @@ export default function DetailsProductsPage() {
     },
     {
       name: "Productos y Servicios",
-      href: "/pages/products",
+      href: "/products",
     },
     {
       name: "Ver Producto o Servicio",
-      href: "/pages/products/details",
+      href: "/products/details",
     },
   ];
 
@@ -38,7 +38,7 @@ export default function DetailsProductsPage() {
             </h1>
             <div className="hidden items-center gap-2 md:ml-auto md:flex">
               <Link
-                href="/pages/products"
+                href="/products"
                 className={buttonVariants({ variant: "outline", size: "sm" })}
               >
                 Cancelar
@@ -64,7 +64,7 @@ export default function DetailsProductsPage() {
           </div>
           <div className="flex items-center justify-center gap-2 md:hidden">
             <Link
-              href="/pages/products"
+              href="/products"
               className={buttonVariants({ variant: "outline", size: "sm" })}
             >
               Cancelar

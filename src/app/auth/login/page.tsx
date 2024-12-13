@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { userLoginSchema } from "@/schemas/users/login.schema";
 import { z } from "zod";
@@ -30,6 +30,9 @@ import Loading from "@/app/loading";
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
+
+  const searchParams = useSearchParams();
+  const nextPage = searchParams.get("nextpage") || "home";
 
   const form = useForm<z.infer<typeof userLoginSchema>>({
     resolver: zodResolver(userLoginSchema),
@@ -64,9 +67,11 @@ export default function LoginPage() {
       });
 
       setTimeout(() => {
-        router.push("/home");
+        if (nextPage) {
+          router.push("/" + nextPage);
+        }
         setIsLoading(false);
-      }, 1600);
+      }, 500);
     }
   }
 

@@ -71,11 +71,11 @@ export default function RegisterPage() {
     },
     {
       name: "Lista de Usuarios",
-      href: "/pages/users",
+      href: "/users",
     },
     {
       name: "Registro de Usuarios",
-      href: "/pages/users/register",
+      href: "/users/register",
     },
   ];
 

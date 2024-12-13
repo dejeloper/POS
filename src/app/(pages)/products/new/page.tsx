@@ -51,11 +51,11 @@ export default function NewProductPage() {
     },
     {
       name: "Productos y Servicios",
-      href: "/pages/products",
+      href: "/products",
     },
     {
       name: "Agregar Producto o Servicio",
-      href: "/pages/products/new",
+      href: "/products/new",
     },
   ];
 
